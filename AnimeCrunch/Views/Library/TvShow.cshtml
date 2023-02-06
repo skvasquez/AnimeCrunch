@@ -1,0 +1,84 @@
+﻿@model AnimeCrunch.Models.DataModels.TvShow
+@using AnimeCrunch.Models.DataModels
+@{
+    ViewBag.Title = "TvShow";
+    TVShowDb db = new TVShowDb();
+    ICollection<Season> season = Model.Seasons;
+}
+<head>
+    <link href="~/Content/CSS/Body.css" rel="stylesheet" type="text/css" />
+</head>
+
+<div class="tvshow-summary row">
+    @AnimeCrunch.Resources.Views.StringsViews.Summary
+</div>
+<div class="tvshow-info row">
+    <div class="image-tvshow col-4">
+        <img src="@Model.Image" style="max-width:300px;" />
+    </div>
+    <div class="col-6">
+        <div class="row">
+            <div><h2>@Model.Title</h2></div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                if (Model.Users.Any(o => o.UserId == int.Parse(User.Identity.Name)))
+                {
+                    <a style="padding-left:100px; height:60px; width:60px; position:center;" href="/Users/DeleteFavorite?Id=@Model.TvShowId"><img src="~/Content/Icons/Heart_Like.png" /></a>
+                }
+                else
+                {
+                    <a style="padding-left: 107px; padding-top: 8px; height:60px; width: 60px;" href="~/Users/AddFavorite?Id=@Model.TvShowId"><img src="~/Content/Icons/Black_Heart.png" /></a>
+                }
+            }
+        </div>
+
+        <div class="row">
+            <div>@Html.DisplayFor(modelItem => Model.Year)</div>
+        </div>
+        <div class="row" style="padding-top:20px">
+            <div style="padding-right:30px"><p>@Model.EpisodeCount @AnimeCrunch.Resources.Views.StringsViews.Episodes</p></div>
+        </div>
+        <div class="row">
+            <div style="padding-right:75px">@Html.DisplayFor(modelItem => Model.TVParentalGuideline)</div>
+        </div>
+        <div class="row">
+            <div>Genre : &nbsp; </div>
+            @foreach (Genre g in Model.Genres.ToList())
+            {<p style="padding-right:10px"> @g.Name </p>}
+        </div>
+        <div class="row">
+            <div>Studio : @Html.DisplayFor(modelItem => Model.Studio.Name)</div>
+        </div>
+        <div class="tvshow-plot row" style="padding-top:30px">
+            <div>Summary</div>
+            <div>@Html.DisplayFor(modelItem => Model.Plot)</div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+@if (Model.Seasons.Count() > 1)
+{
+    <h3>@AnimeCrunch.Resources.Views.StringsViews.Seasons</h3>
+}
+else
+{
+    <h3>@AnimeCrunch.Resources.Views.StringsViews.Season</h3>
+}
+<div class="row">
+    @foreach (Season tv in Model.Seasons)
+    {
+
+        @Html.DisplayFor(m => tv)
+    }
+</div>
+<br />
+<h3 style="padding-top:20px;">@AnimeCrunch.Resources.Views.StringsViews.Cast</h3>
+<div class="row">
+    @foreach (Role role in Model.Roles)
+    {
+        @Html.DisplayFor(r => role)
+    }
+</div>
+

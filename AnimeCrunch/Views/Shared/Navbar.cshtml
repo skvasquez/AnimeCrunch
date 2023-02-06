@@ -1,0 +1,54 @@
+﻿
+<nav class="navbar navbar-expand-sm navbar-dark">
+    <link href="~/Content/CSS/Body.css" rel="stylesheet" type="text/css" />
+    <a class="navbar-brand" href="/"><img src="~/Content/Icons/animecrunch-off.png" alt="" style="width:320px;height:55%;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="/Users/Login">@AnimeCrunch.Resources.Views.StringsViews.Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Users/SignUp">@AnimeCrunch.Resources.Views.StringsViews.SignUp</a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="/Library/Index">@AnimeCrunch.Resources.Views.StringsViews.Library</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Users/Edit">@AnimeCrunch.Resources.Views.StringsViews.Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Users/Logout">@AnimeCrunch.Resources.Views.StringsViews.Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Users/Favorites">@AnimeCrunch.Resources.Views.StringsViews.FavoriteShows</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Users/History">@AnimeCrunch.Resources.Views.StringsViews.History</a>
+                </li>
+            }
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+            @if (System.Threading.Thread.CurrentThread.CurrentCulture.Name == "en")
+            {
+                <li class="nav-item-lang">
+                    <a class="nav-link" href="/Home/ChangeLanguage?lang=fr">fr</a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item-lang">
+                    <a class="nav-link" href="/Home/ChangeLanguage?lang=en">en</a>
+                </li>
+            }
+        </ul>
+    </div>
+</nav>

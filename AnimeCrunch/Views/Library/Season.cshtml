@@ -1,0 +1,14 @@
+﻿@model IEnumerable<AnimeCrunch.Models.DataModels.Episode>
+@using AnimeCrunch.Models.DataModels
+
+
+<h1>@ViewBag.EpisodeSaison @AnimeCrunch.Resources.Views.StringsViews.Episodes</h1>
+
+<div class="row">
+    @foreach (Episode ep in Model)
+    {
+        @Html.DisplayFor(e => ep)
+    }
+
+</div>
+@Html.Partial("PaginationEpisodes");

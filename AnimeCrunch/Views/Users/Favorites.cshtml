@@ -1,0 +1,10 @@
+﻿@model IEnumerable<D72TP1P3.Models.DataModels.TvShow>
+@using D72TP1P3.Models.DataModels
+
+<h2>@D72TP1P3.Resources.Views.StringsViews.Favorites</h2>
+<div class="row">
+    @foreach (TvShow tv in Model)
+    {
+        @Html.DisplayFor(t => tv)
+    }
+</div>

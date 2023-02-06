@@ -1,0 +1,10 @@
+﻿@model IEnumerable<D72TP1P3.Models.DataModels.Episode>
+@using D72TP1P3.Models.DataModels;
+
+<h2>@D72TP1P3.Resources.Views.StringsViews.History</h2>
+<div class="row">
+    @foreach (Episode ep in Model)
+    {
+        @Html.DisplayFor(e => ep)
+    }
+</div>

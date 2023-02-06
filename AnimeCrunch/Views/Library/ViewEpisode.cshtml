@@ -1,0 +1,22 @@
+﻿@model AnimeCrunch.Models.DataModels.Episode
+@{
+    ViewBag.Title = "ViewEpisode";
+}
+
+
+
+@if (!User.IsInRole("Donator"))
+{
+    <h1>@AnimeCrunch.Resources.Views.StringsViews.YouHaveToBeADonator</h1>
+}
+else
+{
+    <h2>@Model.Number-@Model.Title</h2>
+    <video id="LaVideo" controls>
+        <source src="@Model.Video">
+    </video>
+}
+
+
+
+

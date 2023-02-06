@@ -1,0 +1,13 @@
+﻿@model AnimeCrunch.Models.DataModels.Role
+@using AnimeCrunch.Models.DataModels
+
+<link href="~/Content/CSS/Actors.css" rel="stylesheet" type="text/css" />
+<div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+    <div class="card-role">
+        <img class="card-img-top-role" src="@Model.Actor.Image" alt="@Model.Actor.Name">
+    </div>
+    <div class="card-body-role text-center">
+        <h5 class="card-title-role">@Model.Actor.Name</h5>
+        <p class="card-footer-role text-center text-muted">@Model.Character</p>
+    </div>
+</div>

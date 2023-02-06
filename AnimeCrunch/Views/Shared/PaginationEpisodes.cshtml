@@ -1,0 +1,55 @@
+﻿<head>
+    <link href="~/Content/CSS/Body.css" rel="stylesheet" type="text/css" />
+</head>
+
+@if (ViewBag.TotalPages > 1)
+{
+    <nav aria-label="Page navigation" id="pagenav">
+        <ul class="pagination justify-content-end">
+            @if (ViewBag.Page == 1)
+            {
+                @*Previous est désactivé sur la première page*@
+                <li class="page-item disabled">
+                    <a class="page-link" id="pageDisabled">@AnimeCrunch.Resources.Views.StringsViews.Previous</a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item">
+                    <a class="page-link" href="/Library/Season?SeasonId=@ViewBag.SeasonId&Page=@(ViewBag.Page - 1)" tabindex="-1">@AnimeCrunch.Resources.Views.StringsViews.Previous</a>
+                </li>
+            }
+            @*Générer les liens*@
+            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+            {
+                @*Marquer la page active*@
+                if (i == ViewBag.Page)
+                {
+                    <li class="page-item active">
+                        <a class="page-link" id="pageNow"href="/Library/Season?SeasonId=@ViewBag.SeasonId&Page=@i">@i</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item">
+                        <a class="page-link" id="pageOther" href="/Library/Season?SeasonId=@ViewBag.SeasonId&Page=@i">@i</a>
+                    </li>
+                }
+            }
+
+            @if (ViewBag.Page == ViewBag.TotalPages)
+            {
+                //Next est désactivé sur la denière page
+                <li class="page-item disabled" >
+                    <a class="page-link" id="pageDisabled">@AnimeCrunch.Resources.Views.StringsViews.Next</a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item">
+                    <a class="page-link" href="/Library/Season?SeasonId=@ViewBag.SeasonId&Page=@(ViewBag.Page + 1)">@AnimeCrunch.Resources.Views.StringsViews.Next</a>
+                </li>
+            }
+        </ul>
+    </nav>
+}

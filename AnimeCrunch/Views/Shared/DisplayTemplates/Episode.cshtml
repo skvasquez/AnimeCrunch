@@ -1,0 +1,22 @@
+﻿@model AnimeCrunch.Models.DataModels.Episode
+
+<head>
+    <link href="~/Content/CSS/Body.css" rel="stylesheet" type="text/css" />
+</head>
+
+<div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+    <div class="card">
+        <a href="/Library/Episode?EpisodeId=@Model.EpisodeId">
+            <img class="card-img-top mx-auto rounded" src="@Model.Image" alt="@Model.Number">
+            <div class="card-body text-center">
+                <h5 class="card-title">@Model.Title</h5>
+                <p class="card-footer text-center">@AnimeCrunch.Resources.Views.StringsViews.Episode @Model.Number</p>
+            </div>
+        </a>
+    </div>
+    <br />
+    <br />
+</div>
+
+
+

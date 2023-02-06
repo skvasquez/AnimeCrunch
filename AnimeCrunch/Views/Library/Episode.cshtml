@@ -1,0 +1,45 @@
+﻿@model AnimeCrunch.Models.DataModels.Episode
+@{
+    ViewBag.Title = "Episode";
+}
+
+
+<a href="/Library/TvShow?TvShowId=@Model.Season.TvShow.TvShowId">
+    <h2>@Model.Season.TvShow.Title</h2>
+</a>
+
+
+
+<div class="row">
+
+    <div class="col-6">
+        <a href="/Library/ViewEpisode?EpisodeId=@Model.EpisodeId">
+
+            <img src="@Model.Image">
+
+        </a>
+    </div>
+    <div class="col-6">
+
+        <div class="row">
+
+            <div> <a href="/Library/TvShow?TvShowId=@Model.Season.TvShow.TvShowId"> @AnimeCrunch.Resources.Views.StringsViews.Season @Html.DisplayFor(modelItem => Model.Season.Number)</a> - @AnimeCrunch.Resources.Views.StringsViews.Episode @Html.DisplayFor(modelItem => Model.Number) @Html.DisplayFor(modelItem => Model.Title)</div>
+        </div>
+        <div class="row">
+
+            <div>@Html.DisplayFor(modelItem => Model.Runtime) min</div>
+        </div>
+        <div class="row">
+
+            <div>@Html.DisplayFor(modelItem => Model.Season.TvShow.TVParentalGuideline)</div>
+        </div>
+
+        <div class="row">
+
+            <div>@Html.DisplayFor(modelItem => Model.Plot)</div>
+        </div>
+
+
+    </div>
+</div>
+

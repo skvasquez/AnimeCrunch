@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/CSS/Body.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+    @Html.Partial("Navbar")
+
+    <div class="container body-content" id="main-body">
+        &nbsp;
+        @RenderBody()
+        <button class="back-to-top" onclick="TopPage()" id="back-to-top" title="Go to top">
+            <img src="~/Content/Icons/to-top.png" width="90" height="90" alt="submit" />
+        </button>
+        <hr />
+        <footer>
+            <p>&copy; Copyright Sebastian Vasquez</p>
+        </footer>
+    </div>
+
+
+
+    <script src="~/Scripts/jquery-3.4.1.slim.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/unobtrusive-bootstrap.js"></script>
+
+    <script>
+        // Get button:
+        let btnBackToTop = document.getElementById("back-to-top");
+        window.onscroll = function () { BackToTop() };
+
+        function BackToTop() {
+            // Appears when page scrolled 1000 px
+            if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+                btnBackToTop.style.display = "block";
+            } else {
+                btnBackToTop.style.display = "none";
+            }
+        }
+
+        if (document.documentElement.scrollTop == 0) {
+            btnBackToTop.style.display = "none";
+        }
+
+        function TopPage() {
+            // Safari
+            document.body.scrollTop = 0;
+            // Chrome
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</body>
+</html>
