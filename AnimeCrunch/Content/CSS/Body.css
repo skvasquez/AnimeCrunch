@@ -128,16 +128,22 @@ nav .navbar-nav li a:hover {
     line-height: 1.5em;
     height: 3em;
     overflow: hidden;
+    color: #212122;
 }
 
 .card:hover .card-title, .card-season:hover .card-title, .card-episode:hover .card-title {
     /*dark red*/
     color: #9E2F42;
+    text-decoration: none;
 }
 
-.card a {
+.card-body .card-footer {
     /* black */
     color: #212122;
+    text-decoration: none;
+}
+
+.card a, .card-season a{
     text-decoration: none;
 }
 
@@ -169,7 +175,7 @@ nav .navbar-nav li a:hover {
     height: 0px;
 }
 
-.card:hover .card-footer, .card-season:hover h5 {
+.card:hover .card-footer, .card-season:hover h5+p  {
     /*dark red*/
     color: #9E2F42;
 }
