@@ -1,6 +1,6 @@
-﻿@model D72TP1P3.Models.ViewModels.User.Login
+﻿@model AnimeCrunch.Models.ViewModels.User.Login
 
-<h2 class="page-header">@D72TP1P3.Resources.Views.StringsViews.Login</h2>
+<h2 class="page-header">@AnimeCrunch.Resources.Views.StringsViews.Login</h2>
 
 @using (Html.BeginForm("Login", "Users", FormMethod.Post)) {
     @Html.AntiForgeryToken()
@@ -31,7 +31,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="@D72TP1P3.Resources.Views.StringsViews.Login" class="btn btn-success" />
+                <input type="submit" value="@AnimeCrunch.Resources.Views.StringsViews.Login" class="btn btn-success" />
             </div>
         </div>
     </div>

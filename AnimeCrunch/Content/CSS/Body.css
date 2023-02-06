@@ -147,8 +147,8 @@ nav .navbar-nav li a:hover {
     display: inline-block;
     border-radius: 50%;
     overflow: hidden;
-    width: 250px;
-    height: 250px;
+    width: 150px;
+    height: 150px;
 }
 
     .card-role .card-img-top-role {
@@ -156,6 +156,10 @@ nav .navbar-nav li a:hover {
         height: 100%;
         object-fit: cover;
         position: center;
+
+    }
+    .card-body-role{
+        width:150px;
     }
 
 /* CARD -- FOOTER */

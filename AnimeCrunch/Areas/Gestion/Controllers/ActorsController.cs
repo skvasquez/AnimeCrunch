@@ -15,6 +15,7 @@ namespace AnimeCrunch.Areas.Gestion.Controllers {
         public ActionResult Create() {
             return this.View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Actor actor) {
